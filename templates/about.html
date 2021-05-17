@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {{ company[1]["name"] }}
 
     <h2>{{ page_title }}</h2>
     <p>Sons of Anarchy, aka SAMCRO, is a motorcycle club that operates both illegal and legal businesses in the small
@@ -11,39 +10,21 @@
         his dead father's journal.
         Their conflict has effects on both the club and their personal relationships.</p>
 
-    <div class="row mt-4 featurette">
-        <div class="col-md-7">
-            <h3>Jackson 'Jax' Teller</h3>
-            <p>is the son of Gemma and John Teller; born in 1978, he was raised in the rural fictional Northern
-                California town of Charming. His father, founder and first President of the Sons of Anarchy Motorcycle
-                Club, died in a road accident in 1993; his mother Gemma marries club member Clay Morrow, who then became
-                President of the club's "Redwood Original" charter. As the show begins, Jax serves as his charter's Vice
-                President, and works as a mechanic at the family automotive repair shop. He has served time in prison
-                for smuggling and gun-running related to the club's activities, and is estranged from his pregnant wife
-                Wendy; as the series begins, she overdoses and endangers the life of their unborn son Abel, who is born
-                addicted to methamphetamine. Jax has also discovered a manuscript by his late father, in which John
-                describes his disillusionment with the club.</p>
-        </div>
-        <div class="col-md-5">
-           <img src="https://static.wikia.nocookie.net/sonsofanarchy/images/0/03/Jax_706.png" alt="Jax Teller">
-        </div>
-    </div>
+    {% for member in company %}
 
-    <div class="row mt-4 featurette">
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/sonsofanarchy/images/3/3e/GemmaTellerMorrow.jpg" alt="Gemma Teller">
-        </div>
-        <div class="col-md-7">
-            <h3>Gemma Teller Morrow</h3>
-            <p>Gemma was born September 15, 1957 to Nate and Rose and is a native of Charming, California; her maiden
-                name is Madock. According to Sheriff Wayne Unser, she left Charming when she was sixteen and returned
-                "ten years later with a baby and a motorcycle club". She married John Teller, a Vietnam War veteran and
-                founder of the Sons of Anarchy Motorcycle Club, with whom she had two children: Jackson in 1978 and
-                Thomas in 1984. Gemma has a scar on her chest which is explained when her grandson Abel
-                has surgery. Gemma has a genetic heart disorder from her mother's side which she passed on to her
-                children—Thomas died in 1990 from complications of the disorder, and Abel nearly died from heart
-                complications after his premature birth. After John was hit by a semi-truck and died in 1993, she
-                quickly married John's friend Clay Morrow.</p>
+        <div class="row mt-5 featurette">
+            <div class="col-md-7">
+                <h3>{{ member.name }}</h3>
+                <p>{{ member.description }}</p>
             </div>
-    </div>
+            <div class="col-md-5">
+            <img src="{{ member.image_source }}" alt="{{ member.name }}" class="featurette-image image-responsive">
+            </div>
+        </div>
+
+        <div class="hr featurette-divider"></div>
+
+    {% endfor %}
+
+ 
 {% endblock %}
